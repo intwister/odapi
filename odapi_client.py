@@ -30,7 +30,7 @@ class OdApiClient:
         self.config = config
 
     def build_request(self, service, subpath):
-        url = "{}/{}/{}/{}".format(self.config.base_url, service, self.config.language, subpath)
+        url = u"{}/{}/{}/{}".format(self.config.base_url, service, self.config.language, subpath)
         return requests.get(
             url,
             headers={
@@ -50,7 +50,7 @@ class OdApiClient:
         Returns:
             list: Returns a list of words or an exception for API errors.
         """
-        url_params = "%3B".join(["{}%3D{}".format(k, v) for (k, v) in params.items() if v is not None])
+        url_params = u"%3B".join([u"{}%3D{}".format(k, v) for (k, v) in params.items() if v is not None])
         response = self.build_request("wordlist", url_params)
 
         if response.status_code == 200:

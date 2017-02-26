@@ -19,6 +19,6 @@ for word in words:
         definition = client.define_word(word)
         print definition
         display.scroll_text("")
-        display.scroll_text("- {} - {}".format(word, definition))
+        display.scroll_text(u"- {} - {}".format(word, definition))
     except odapi_client.ODAPIClientException as e:
         pass
