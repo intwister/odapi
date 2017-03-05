@@ -20,14 +20,15 @@ sudo apt-get install python-requests
 ```
 
 *Setup your ODAPI Key*
+
 1. Register at developer.oxforddictionaries.com
 2. Add the details to the config file
+
 ```
 cp config-template.json config.json
 vi config.json
-```
 <Fill in your api key details>
-
+```
 
 *Install start script*
 ```
