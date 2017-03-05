@@ -1,5 +1,6 @@
 import odapi_client
 import TM1638
+import time
 
 DIO = 17
 CLK = 21
@@ -14,11 +15,20 @@ print words
 display = TM1638.TM1638(DIO, CLK, STB, sleep_time=0.0005)
 display.enable(intensity=3)
 
+show_definitions = True
+
 for word in words:
     try:
-        definition = client.define_word(word)
-        print definition
-        display.scroll_text("")
-        display.scroll_text(u"- {} - {}".format(word, definition))
+        display.set_text("")
+
+        if show_definitions:
+            definition = client.define_word(word)
+            print definition
+            display.scroll_text(u"- {} - {}".format(word, definition), print_forward=True)
+        else:
+            display.scroll_text(word, print_forward=True)
+
+        time.sleep(2)
+
     except odapi_client.ODAPIClientException as e:
         pass

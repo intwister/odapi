@@ -1,0 +1,11 @@
+[Unit]
+Description=ODAPI Display Service
+After=multi-user.target
+
+[Service]
+Type=idle
+ExecStart=/usr/bin/python /home/pi/odapi/main.py
+WorkingDirectory=/home/pi/odapi
+
+[Install]
+WantedBy=multi-user.target
