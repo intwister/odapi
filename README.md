@@ -4,6 +4,13 @@ A Raspberry PI application to look up lists of words from the Oxford Dictionarie
 
 This project uses the TM1638 library from https://github.com/justinfoley/py-tm1638 which was forked from prior work.
 
+Here are a couple of images of it running.
+
+![image 1](images/20170305_195851.jpg "image 1")
+
+![image 2](images/20170305_195900.jpg "image 2")
+
+
 A video can be seen here: [video](https://1drv.ms/v/s!AocT69KY_1N9llVdOE8FnISPd_Pl)
 
 
