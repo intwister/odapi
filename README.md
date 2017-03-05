@@ -1,8 +1,10 @@
 # odapi
 
-A Raspberry PI application to look up lists of words from the Oxford Dictionaries API and display the word and definition on a TM1638 LED display.
+A Raspberry PI application to look up lists of words from the Oxford Dictionaries API and display the word and definition on a TM1638 LED display. It is a kind of retro vocabulary builder that sits in the corner and teaches you new words.
 
 This project uses the TM1638 library from https://github.com/justinfoley/py-tm1638 which was forked from prior work.
+
+A video can be seen here: [video](https://1drv.ms/v/s!AocT69KY_1N9llVdOE8FnISPd_Pl)
 
 
 *Install Git*
