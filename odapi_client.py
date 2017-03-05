@@ -29,8 +29,12 @@ class OdApiClient:
     def __init__(self, config):
         self.config = config
 
-    def build_request(self, service, subpath):
-        url = u"{}/{}/{}/{}".format(self.config.base_url, service, self.config.language, subpath)
+    def build_request(self, service, subpath=None):
+        url = u"{}/{}/{}".format(self.config.base_url, service, self.config.language)
+
+        if subpath is not None:
+            url += u"/{}".format(subpath)
+
         return requests.get(
             url,
             headers={
@@ -72,7 +76,6 @@ class OdApiClient:
 
         if response.status_code == 200:
             result = response.json()
-            print result
             try:
                 return result["results"][0]["lexicalEntries"][0]["entries"][0]["senses"][0]["definitions"][0]
             except:
@@ -80,3 +83,16 @@ class OdApiClient:
         else:
             raise ODAPIClientException("Bad response from ODAPI: {} {}".format(response.status_code, response.text))
 
+
+    def get_registers(self):
+        """ Get a list of possible registers
+
+        Returns:
+            list: Returns a list of registers that can be used or an exception for API errors.
+        """
+        response = self.build_request("registers")
+
+        if response.status_code == 200:
+            return [register for register in response.json()["results"]]
+        else:
+            raise ODAPIClientException("Bad response from ODAPI: {} {}".format(response.status_code, response.text))
