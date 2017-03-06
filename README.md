@@ -14,6 +14,8 @@ Here are a couple of images of it running.
 A video can be seen here: [video](https://1drv.ms/v/s!AocT69KY_1N9llVdOE8FnISPd_Pl)
 
 
+*Installation*
+
 *Install Git*
 ```
 sudo apt-get install git-core
@@ -36,6 +38,7 @@ sudo apt-get install python-requests
 2. Add the details to the config file
 
 ```
+cd /home/pi/odapi
 cp config-template.json config.json
 vi config.json
 <Fill in your api key details>
